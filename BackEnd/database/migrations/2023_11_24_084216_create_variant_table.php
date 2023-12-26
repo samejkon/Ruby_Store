@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('size_id');
             $table->integer('color_id');
             $table->integer('quantity');
-            $table->integer('price');
+            $table->decimal('price', 6, 2);
             $table->string('image');
             $table->timestamps();
         });

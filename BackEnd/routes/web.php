@@ -8,22 +8,13 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [ClientController::class, 'home']);
+Route::get('detail/{id}', [ClientController::class, 'show']);
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -56,7 +47,6 @@ Route::prefix('admin')->group(function () {
         Route::get('variant/{id}/edit/{variantId}', 'editVariant')->name('variant.edit');
         Route::post('variant/{id}/update/{variantId}', 'updateVariant')->name('variant.update');
         Route::get('variant/{id}/delete/{variantId}', 'deleteVariant')->name('variant.delete');
-
     });
 
     //size

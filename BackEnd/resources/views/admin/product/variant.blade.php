@@ -47,6 +47,7 @@
               <th>Name</th>
               <th>Danh mục</th>
               <th class="d-none d-sm-block">Mô tả</th>
+              <th >Price </th>
               <th >Ảnh</th>
             </thead>
             <br>
@@ -54,6 +55,7 @@
               <td>{{ $product->name }}</td>
               <td>{{ $product->getCate() }}</td>
               <td>{{ $product->description }}</td>
+              <td>{{ $product->price }}</td>
               <td >
                 <img src="{{ asset('storage/'.$product->image) }}" alt="" width="200px" height="200px">
               </td>
